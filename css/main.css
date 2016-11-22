@@ -1,0 +1,314 @@
+html {
+	font-family: 'Open Sans', sans-serif;
+}
+
+body {
+	font-size: 11px;
+}
+
+/* split 2 divs */
+.half-div {
+	width: 1265px;
+	height: 650px;
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+}
+
+.half-div .left {
+	width: 50%;
+	height: 100%;
+	border: 1px solid #D6D6D6;
+}
+
+.half-div .right {
+	width: 50%;
+	height: 100%;
+	border-top: 1px solid #D6D6D6;
+	border-bottom: 1px solid #D6D6D6;
+	border-right: 1px solid #D6D6D6;
+}
+
+/* logo & description */
+.logo {
+	padding-bottom: 5px;
+	text-align: center;
+	border-bottom: 1px solid #D6D6D6;
+}
+
+.logo .image {
+	display: inline-block;
+}
+
+.logo .image img {
+	width: 130px;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.logo .text {
+	width: 76%;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.logo .title {
+	font-size: 14px;
+	font-weight: bold;
+}
+
+/* month */
+.month {
+	text-align: center;
+	padding: 10px;
+	font-size: 12px;
+	border-bottom: 1px solid #D6D6D6;
+}
+.month select,
+.month option {
+	height: 20px;
+	border: 1px solid #AAA;
+	border-radius: 3px;
+	outline: none;
+}
+.month select:focus,
+.month option:focus {
+	border: 1px solid #3A3D42;
+}
+
+.month button {
+	margin-left: 100px;
+	height: 20px;
+	border-radius: 3px;
+	text-align: center;
+	font-size: 12px;
+	font-weight: bold;
+	color: white;
+	background-color: #3A3D42;
+	border: none;
+	outline: none;
+	cursor: pointer; 
+}
+
+/* sunburst */
+.sunburst-chart {
+	height: 505px;
+	text-align: center;
+	padding-top: 10px;
+	font-size: 12px;
+}
+
+.sunburst-chart .title {
+	font-size: 14px;
+	font-weight: bold;
+}
+
+#sequence {
+	padding-top: 15px;
+	font-size: 12px;
+}
+
+#sequence text, #legend text {
+	font-weight: bold;
+	font-size: 12px;
+	fill: #FFF;
+}
+
+/*#select-msg {
+	color: #393939;
+	font-weight: normal;
+	font-style: italic;
+}*/
+
+#chart {
+	width: 425px;
+	margin: 0 auto;
+}
+
+#chart path {
+	stroke: #FFF;
+	stroke-width: 0.3px;
+	cursor: pointer; 
+    cursor: hand;
+}
+
+#explanation {
+	position: absolute;
+	width: 350px;
+	height: 350px;
+	margin-left: 37px;
+	text-align: center;
+	color: #393939;
+	z-index: -1;
+}
+
+#percentage {
+	position: absolute;
+	top: 50%; 
+	left: 50%;
+	transform: translate(-50%,-50%);
+	font-size: 12px;
+	height: auto;
+	width: 140px;
+}
+
+#sidebar {
+	width: 100%;
+	padding-top: 20px;
+	padding-bottom: 10px;
+}
+
+#legend {
+	font-size: 12px;
+}
+
+/* factors */
+.factors-title {
+	padding-bottom: 10px;
+	text-align: center;
+}
+
+.factors-title .text {
+	width: 100%;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	font-size: 14px;
+	font-weight: bold;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.factors-title .line {
+	width: 100px;
+	margin: 0 auto;
+	border-bottom: 1px solid #D6D6D6;
+}
+
+/* histogram & bar charts */
+.histogram-div {
+	text-align: center;
+	border-bottom: 1px solid #D6D6D6;
+	height: 158px;
+}
+
+.histogram-div .title {
+	font-size: 12px;
+	font-weight: bold;
+	margin: 0 auto;
+}
+
+.right .bar {
+	fill: #4F617B;
+	shape-rendering: crispEdges;
+}
+
+.histogram .axis path, .axis line,
+.dowbarchart .axis path, .axis line,
+.wconditionchart .axis path, .axis line,
+.rsconditionchart .axis path, .axis line  {
+	fill: none;
+	stroke: #000;
+	shape-rendering: crispEdges;
+}
+
+.wconditionchart .x .tick {
+	font-size: 9px;
+}
+
+.rsconditionchart .x .tick {
+	font-size: 10px;
+}
+
+#dayofweekbarchart,
+#weatherconditionchart,
+#roadsurfaceconditionchart {
+	padding-top: 5px;
+}
+
+/* 2x2 grid div */
+.grid2x2 {
+/*	height: 455px;
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;*/
+}
+.grid2x2 > div {
+	display: flex;
+	width: 630px;
+	height: 227px;
+	/*margin: 0 auto;*/
+	/*flex-direction: column;*/
+}
+.grid2x2 > div > div {
+	text-align: center;
+	padding-top: 5px;
+	width: 315px;
+	height: 222px;
+}
+
+.box { margin: 0px; }
+.box1 { 	
+	border-right: 1px solid #D6D6D6;
+	border-bottom: 1px solid #D6D6D6; }
+.box2 { border-bottom: 1px solid #D6D6D6; }
+.box3 { border-right: 1px solid #D6D6D6; }
+
+.grid2x2 .title {
+	font-size: 12px;
+	font-weight: bold;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin: 0 auto;
+}
+
+/* radialbarchart */
+#radialbarchart{
+	text-align: center;
+	padding-top: 5px;
+}
+
+#rb-chart {
+	font-size: 11px;
+}
+#rb-chart path {
+	fill: none;	
+	shape-rendering: auto;
+}
+
+/* Outer circle, tick-circles and spokes */
+#rb-chart circle.outer,
+#rb-chart .tick-circles circle,
+#rb-chart .spokes line {
+	stroke: #000;
+	stroke-width: 0.5;
+	shape-rendering: auto;
+}
+
+/* Axis */
+#rb-chart .axis text {
+	font-size: 10px;
+}
+
+/* Labels */
+#rb-chart .labels text {
+	fill: #333;
+	font-size: 9px;
+}
+
+/* tooltip rb */
+.rb-chart-tooltip  {
+	background: #EEE;
+	color: #393939;
+	display: none;
+	left: 865px;
+	padding: 5px;
+	position: absolute;
+	text-align: center; 
+	top: 210px;
+	width: 75px;
+	z-index: 10;
+}
