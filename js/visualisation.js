@@ -70,21 +70,21 @@ function initSunburst(data) {
 
 	// Mapping of step names to colors.
 	var colors = {
-		"Age 0 to 10": "#1E88E5",
-		"Age 11 to 20": "#1E88E5",
-		"Age 21 to 30": "#1E88E5",
-		"Age 31 to 40": "#1E88E5",
-		"Age 41 to 50": "#1E88E5",
-		"Age 51 to 60": "#1E88E5",
-		"Age 61 to 70": "#1E88E5",
-		"Age 71 to 80": "#1E88E5",
-		"Above Age 80": "#1E88E5",
+		"Age 0 to 10": "#039BE5",
+		"Age 11 to 20": "#039BE5",
+		"Age 21 to 30": "#039BE5",
+		"Age 31 to 40": "#039BE5",
+		"Age 41 to 50": "#039BE5",
+		"Age 51 to 60": "#039BE5",
+		"Age 61 to 70": "#039BE5",
+		"Age 71 to 80": "#039BE5",
+		"Above Age 80": "#039BE5",
 		"Driver/Rider": "#FFA000",
 		"Passenger": "#FF8F00",
 		"Pedestrian": "#EF6C00",
-		"Fatal": "#C62828",
+		"Fatal": "#B71C1C",
 		"Serious": "#E53935",
-		"Minor": "#EF5350"
+		"Minor": "#F06461"
 	};
 
 	//Cross Filter Data & set up dimensions
@@ -851,13 +851,13 @@ function initSunburst(data) {
 		};
 
 		var colorsLegend = {
-			"Age": "#1E88E5",
+			"Age": "#039BE5",
 			"Driver/Rider": "#FFA000",
 			"Passenger": "#FF8F00",
 			"Pedestrian": "#EF6C00",
-			"Minor": "#EF5350",
+			"Minor": "#F06461",
 			"Serious": "#E53935",
-			"Fatal": "#C62828"
+			"Fatal": "#B71C1C"
 		};
 
 		var legend = d3.select("#legend").append("svg:svg")
@@ -967,15 +967,17 @@ function rbUpdate(preData) {
 	function initData() {
 		preData = d3.nest()
 			.key(function(d) { return d.time; })
+			.key(function(d) { return d.Accident_Index; })
 			.rollup(function(v) { return v.length; })
 			.entries(preData);
 
+
 		var total = d3.sum(preData, function(d) { 
-			return d.values; 
+			return d.values.length; 
 		});
 
 		preData.forEach(function(d) {
-			d.percentage = parseFloat((d.values / total * 100).toFixed(2));
+			d.percentage = parseFloat((d.values.length / total * 100).toFixed(2));
 		});
 
 		rbData = [{data: {}}];
@@ -1367,6 +1369,7 @@ function initDriversHistogram(preData, newCreate) {
 
 	preData = d3.nest()
 		.key(function(d) { return d.ageBin; })
+		.key(function(d) { return d.Accident_Index; })
 		.rollup(function(v) { return v.length; })
 		.entries(preData);
 
@@ -1376,7 +1379,7 @@ function initDriversHistogram(preData, newCreate) {
 		var added = true;
 		for (var j=0; j<preData.length; j++) {
 			if (preData[j].key == binValue) {
-				data.push({"x": binValue, "y": preData[j].values});
+				data.push({"x": binValue, "y": preData[j].values.length});
 				added = false;
 			}
 		}
@@ -1550,6 +1553,7 @@ function initDayofWeekBarChart(preData, newCreate){
 
 	preData = d3.nest()
 		.key(function(d) { return d.Day_of_Week; })
+		.key(function(d) { return d.Accident_Index; })
 		.rollup(function(v) { return v.length; })
 		.entries(preData);
 
@@ -1558,7 +1562,7 @@ function initDayofWeekBarChart(preData, newCreate){
 		var added = true;
 		for (var j=0; j<preData.length; j++) {
 			if (preData[j].key == labelArray[i]) {
-				data.push({"x": labelArray[i], "y": preData[j].values});
+				data.push({"x": labelArray[i], "y": preData[j].values.length});
 				added = false;
 			}
 		}
@@ -1717,6 +1721,7 @@ function initWeatherCondition(preData, newCreate){
 
 	preData = d3.nest()
 		.key(function(d) { return d.Weather_Conditions; })
+		.key(function(d) { return d.Accident_Index; })
 		.rollup(function(v) { return v.length; })
 		.entries(preData);
 
@@ -1725,7 +1730,7 @@ function initWeatherCondition(preData, newCreate){
 		var added = true;
 		for (var j=0; j<preData.length; j++) {
 			if (preData[j].key == labelArray[i]) {
-				data.push({"x": labelArray[i], "y": preData[j].values});
+				data.push({"x": labelArray[i], "y": preData[j].values.length});
 				added = false;
 			}
 		}
@@ -1887,15 +1892,16 @@ function initRoadSurfaceCondition(preData, newCreate){
 
 	preData = d3.nest()
 		.key(function(d) { return d.Road_Surface_Conditions; })
+		.key(function(d) { return d.Accident_Index; })
 		.rollup(function(v) { return v.length; })
 		.entries(preData);
-	//console.log(preData);
+
 	var data = [];
 	for (var i=0; i < labelArray.length; i++) {
 		var added = true;
 		for (var j=0; j<preData.length; j++) {
 			if (preData[j].key == labelArray[i]) {
-				data.push({"x": labelArray[i], "y": preData[j].values});
+				data.push({"x": labelArray[i], "y": preData[j].values.length});
 				added = false;
 			}
 		}
